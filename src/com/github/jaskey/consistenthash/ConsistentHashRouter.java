@@ -35,6 +35,14 @@ public class ConsistentHashRouter<T extends Node> {
     private final SortedMap<Long, VirtualNode<T>> ring = new TreeMap<>();
     private final HashFunction hashFunction;
 
+    public SortedMap<Long, VirtualNode<T>> getRing() {
+        return ring;
+    }
+
+    public HashFunction getHashFunction() {
+        return hashFunction;
+    }
+
     public ConsistentHashRouter(Collection<T> pNodes, int vNodeCount) {
         this(pNodes,vNodeCount, new MD5Hash());
     }
